@@ -10,7 +10,9 @@
     "startdev": "nodemon --exec babel-node ./src/bin/www",
     "lint": "./node_modules/bin/eslint ./src",
     "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
-    "postpretty": "npm lint --fix"
+    "postpretty": "npm lint --fix",
+    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -40,8 +42,14 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/register": "^7.18.9",
     "@babel/runtime": "^7.20.7",
+    "chai": "^4.3.7",
+    "coveralls": "^3.1.1",
     "eslint": "^8.32.0",
     "eslint-config-google": "^0.14.0",
-    "nodemon": "^2.0.20"
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "nyc": "^15.1.0",
+    "sinon-chai": "^3.7.0",
+    "supertest": "^6.3.3"
   }
 }
